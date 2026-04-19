@@ -1,3 +1,4 @@
+<img width="1024" height="1024" alt="Bengaluru Congestion Tax Calculator" src="https://github.com/user-attachments/assets/8a614e2d-0142-40d6-acda-7a40919b8f12" />
 # Bengaluru Congestion Tax Calculator
 
 Estimate how much Bengaluru traffic costs a commuter in time and lost productivity.
