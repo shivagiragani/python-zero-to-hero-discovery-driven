@@ -1,0 +1,3 @@
+﻿sqlalchemy>=2.0
+# for PostgreSQL: uncomment next line
+# psycopg2-binary>=2.9
