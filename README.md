@@ -4,7 +4,7 @@ Structured 8-week Python to Full-Stack learning path with hands-on modules, self
 
 This calendar defines the **daily learning rhythm** for the Discovery‑Driven Python → Full‑Stack course.
 
-It is designed for adults (18+) with **60–90 minutes per day** and emphasizes progress through **guided discovery**, not lectures.
+It is designed  with **60–90 minutes per day** and emphasizes progress through **guided discovery**, not lectures.
 
 ---
 
