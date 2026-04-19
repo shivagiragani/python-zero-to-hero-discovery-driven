@@ -1,0 +1,371 @@
+:root {
+    --bg: #f7f0e6;
+    --bg-strong: #d9c4ad;
+    --panel: rgba(41, 28, 22, 0.94);
+    --panel-soft: rgba(255, 248, 240, 0.9);
+    --text-dark: #241813;
+    --text-light: #fff8f1;
+    --accent: #4f83c2;
+    --accent-deep: #1f4e8c;
+    --line: rgba(36, 24, 19, 0.12);
+    --shadow: 0 28px 60px rgba(57, 38, 26, 0.2);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: "Segoe UI", "Trebuchet MS", sans-serif;
+    color: var(--text-dark);
+    background:
+    radial-gradient(circle at top left, rgba(72, 130, 196, 0.22), transparent 32%),
+    radial-gradient(circle at bottom right, rgba(34, 76, 138, 0.18), transparent 28%),
+    linear-gradient(135deg, #eef6ff 0%, #d8e6f8 52%, #b8cfea 100%);
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: auto;
+    z-index: -1;
+    border-radius: 50%;
+    filter: blur(12px);
+}
+
+body::before {
+    width: 18rem;
+    height: 18rem;
+    top: 6%;
+    right: 8%;
+    background: rgba(72, 130, 196, 0.2);
+}
+
+body::after {
+    width: 12rem;
+    height: 12rem;
+    bottom: 12%;
+    left: 8%;
+    background: rgba(34, 76, 138, 0.12);
+}
+
+.page-shell {
+    width: min(1120px, calc(100% - 2rem));
+    margin: 0 auto;
+    padding: 2rem 0 3rem;
+    display: grid;
+    grid-template-columns: 1.1fr 0.95fr;
+    gap: 1.5rem;
+    align-items: start;
+}
+
+.hero-panel,
+.calculator-panel {
+    border-radius: 28px;
+    box-shadow: var(--shadow);
+    overflow: hidden;
+}
+
+.hero-panel {
+    padding: 3rem;
+    min-height: 100%;
+    color: var(--text-light);
+    background:
+        linear-gradient(160deg, rgba(19, 33, 56, 0.94), rgba(28, 60, 104, 0.94)),
+        linear-gradient(135deg, rgba(79, 131, 194, 0.42), rgba(31, 78, 140, 0.2));
+    position: relative;
+}
+
+.hero-panel::after {
+    content: "";
+    position: absolute;
+    right: -3rem;
+    bottom: -2rem;
+    width: 14rem;
+    height: 14rem;
+    border-radius: 24px;
+    transform: rotate(14deg);
+    background: linear-gradient(135deg, rgba(255, 248, 239, 0.12), rgba(79, 131, 194, 0.3));
+}
+
+.eyebrow {
+    margin: 0 0 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    font-size: 0.78rem;
+    color: rgba(255, 248, 239, 0.72);
+}
+
+h1,
+h2 {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    line-height: 1;
+}
+
+h1 {
+    max-width: 10ch;
+    font-size: clamp(2.7rem, 5vw, 5rem);
+}
+
+h2 {
+    font-size: clamp(1.9rem, 3vw, 2.8rem);
+}
+
+.hero-copy,
+.panel-heading p,
+.supporting-copy,
+.alert,
+.error-banner {
+    line-height: 1.6;
+}
+
+.hero-copy {
+    max-width: 44ch;
+    margin: 1.25rem 0 2rem;
+    color: rgba(255, 248, 239, 0.82);
+    font-size: 1.06rem;
+}
+
+.hero-stats {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.hero-stats div {
+    padding: 1rem 1.1rem;
+    border: 1px solid rgba(255, 248, 239, 0.14);
+    border-radius: 18px;
+    background: rgba(255, 248, 239, 0.06);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+.hero-stats span,
+.metric-label {
+    display: block;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.hero-stats strong,
+.metric-value {
+    display: block;
+    margin-top: 0.4rem;
+    font-size: 1.45rem;
+}
+
+.calculator-panel {
+    padding: 2rem;
+    background: linear-gradient(180deg, rgba(255, 249, 240, 0.96), rgba(255, 246, 235, 0.88));
+    border: 1px solid rgba(255, 255, 255, 0.75);
+}
+
+.panel-heading p {
+    margin: 0.8rem 0 0;
+    color: rgba(29, 23, 19, 0.75);
+}
+
+.calculator-form {
+    display: grid;
+    gap: 1rem;
+    margin-top: 1.8rem;
+}
+
+.calculator-form label {
+    display: grid;
+    gap: 0.45rem;
+}
+
+.calculator-form span {
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.calculator-form input {
+    width: 100%;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 0.95rem 1rem;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--text-dark);
+}
+
+.calculator-form input:focus {
+    outline: 2px solid rgba(79, 131, 194, 0.18);
+    border-color: rgba(79, 131, 194, 0.65);
+}
+
+.calculator-form button {
+    margin-top: 0.5rem;
+    border: 0;
+    border-radius: 999px;
+    padding: 1rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    color: var(--text-light);
+    cursor: pointer;
+    background: linear-gradient(135deg, var(--accent), var(--accent-deep));
+    transition: transform 180ms ease, box-shadow 180ms ease;
+    box-shadow: 0 16px 28px rgba(31, 78, 140, 0.24);
+}
+
+.calculator-form button:hover {
+    transform: translateY(-2px);
+}
+
+.error-banner,
+.alert {
+    margin: 1.2rem 0 0;
+    padding: 0.95rem 1rem;
+    border-radius: 16px;
+}
+
+.error-banner {
+    background: rgba(31, 78, 140, 0.1);
+    color: var(--accent-deep);
+}
+
+.result-panel {
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--line);
+}
+
+.metric-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.9rem;
+}
+
+.metric-card {
+    padding: 1rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.78);
+    border: 1px solid rgba(29, 23, 19, 0.08);
+}
+
+.supporting-copy {
+    margin: 1rem 0 0;
+    color: rgba(29, 23, 19, 0.75);
+}
+
+.graph-panel {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+    margin-top: 1.4rem;
+}
+
+.graph-card {
+    padding: 1rem;
+    border-radius: 22px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.9), rgba(248, 237, 223, 0.78));
+    border: 1px solid rgba(29, 23, 19, 0.08);
+}
+
+.graph-kicker {
+    display: inline-block;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(31, 78, 140, 0.82);
+}
+
+.graph-card h3 {
+    margin: 0.45rem 0 0;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.28rem;
+}
+
+.bar-chart {
+    display: grid;
+    gap: 0.95rem;
+    margin-top: 1rem;
+}
+
+.bar-row {
+    display: grid;
+    grid-template-columns: 6.8rem 1fr auto;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.bar-label,
+.bar-value {
+    font-size: 0.9rem;
+}
+
+.bar-label {
+    color: rgba(29, 23, 19, 0.76);
+}
+
+.bar-track {
+    position: relative;
+    height: 0.9rem;
+    border-radius: 999px;
+    background: rgba(29, 23, 19, 0.09);
+    overflow: hidden;
+}
+
+.bar-fill {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+}
+
+.bar-fill.ideal {
+    background: linear-gradient(90deg, #9fc2ec, #6b99d5);
+}
+
+.bar-fill.actual {
+    background: linear-gradient(90deg, #4f83c2, #1f4e8c);
+}
+
+.bar-fill.benchmark {
+    background: linear-gradient(90deg, #7bb1e8, #467fc3);
+}
+
+.bar-fill.user {
+    background: linear-gradient(90deg, #244f88, #112d52);
+}
+
+.bar-value {
+    color: var(--text-dark);
+}
+
+.alert {
+    background: rgba(79, 131, 194, 0.12);
+    color: #1f4e8c;
+}
+
+@media (max-width: 900px) {
+    .page-shell {
+        grid-template-columns: 1fr;
+        padding-top: 1rem;
+    }
+
+    .hero-panel,
+    .calculator-panel {
+        padding: 1.6rem;
+    }
+
+    .graph-panel,
+    .metric-grid,
+    .hero-stats {
+        grid-template-columns: 1fr;
+    }
+
+    .bar-row {
+        grid-template-columns: 1fr;
+    }
+}

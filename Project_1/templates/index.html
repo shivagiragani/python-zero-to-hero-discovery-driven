@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Congestion Tax Calculator</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div class="page-shell">
+        <section class="hero-panel">
+            <p class="eyebrow">Bengaluru commute cost estimator</p>
+            <h1>Personal Congestion Tax Calculator</h1>
+            <p class="hero-copy">
+                Estimate how much Bengaluru traffic quietly costs you each year in time,
+                focus, and missed earning potential.
+            </p>
+            <div class="hero-stats">
+                <div>
+                    <span>Benchmark</span>
+                    <strong>168 hrs/year</strong>
+                </div>
+                <div>
+                    <span>Default workdays</span>
+                    <strong>240 days</strong>
+                </div>
+            </div>
+        </section>
+
+        <section class="calculator-panel">
+            <div class="panel-heading">
+                <h2>Enter your commute profile</h2>
+                <p>Use your own wage and commute timings to calculate your personal annual loss.</p>
+            </div>
+
+            __ERROR__
+
+            <form action="/calculate" method="post" class="calculator-form">
+                <label>
+                    <span>Approximate hourly earnings (Rs.)</span>
+                    <input type="number" min="0" step="0.01" name="hourly_wage" value="__HOURLY_WAGE__" placeholder="500" required>
+                </label>
+
+                <label>
+                    <span>Ideal one-way commute (minutes)</span>
+                    <input type="number" min="0" step="0.1" name="normal_commute_mins" value="__NORMAL_COMMUTE__" placeholder="35" required>
+                </label>
+
+                <label>
+                    <span>Rush-hour one-way commute (minutes)</span>
+                    <input type="number" min="0" step="0.1" name="actual_commute_mins" value="__ACTUAL_COMMUTE__" placeholder="70" required>
+                </label>
+
+                <label>
+                    <span>Commute-heavy work days per year</span>
+                    <input type="number" min="1" step="1" name="work_days_per_year" value="__WORK_DAYS__" required>
+                </label>
+
+                <button type="submit">Calculate My Congestion Tax</button>
+            </form>
+
+            __RESULT__
+        </section>
+    </div>
+</body>
+</html>
